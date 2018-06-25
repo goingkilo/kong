@@ -1,0 +1,1 @@
+java -jar target/tinkerlab-0.0.1-SNAPSHOT.jar server src/main/lego.yml

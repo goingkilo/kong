@@ -1,0 +1,55 @@
+
+server:
+ rootPath: /api/
+ requestLog:
+     appenders:
+      - type: file
+        currentLogFilename: /Users/kraghunathan/log/access.log
+        threshold: ALL
+        archive: true
+        archivedLogFilenamePattern: /Users/kraghunathan/log/access-%d.log
+        archivedFileCount: 5
+
+ applicationConnectors:
+  - type: http 
+    port: 9090
+    bindHost: 0.0.0.0
+  #- type: https 
+  #  port: 9443 
+  #  keyStorePath: example.keystore 
+  #  keyStorePassword: crimson 
+  #  validateCerts: false 
+
+logging:
+ level: INFO
+ appenders:
+  - type: file
+    currentLogFilename: /Users/kraghunathan/log/a.log
+    threshold: ALL
+    archive: true
+    archivedLogFilenamePattern: /Users/kraghunathan/log/monocle-%d.log
+    archivedFileCount: 5
+    timeZone: IST
+
+database:
+ driverClass: org.postgresql.Driver 
+ user: kraghunathan
+ password: password
+ url: jdbc:postgresql://localhost:5432/monocle
+ properties:
+  charSet: UTF-8
+  hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+  hibernate.hbm2ddl.auto: update
+  #hibernate.show_sql: true
+ maxWaitForConnection: 1s
+ validationQuery: "/* MyApplication Health Check */ SELECT 1"
+ minSize: 8
+ maxSize: 32
+ checkConnectionWhileIdle: false
+
+viewRendererConfiguration:
+ .ftl:
+  strict_syntax: yes
+  whitespace_stripping: yes
+
+ 

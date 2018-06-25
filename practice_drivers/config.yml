@@ -1,0 +1,18 @@
+logging:
+  level: INFO
+  loggers:
+    com.gojek.drivers: DEBUG
+
+server:
+  type: default
+  maxThreads: 100
+  minThreads: 100
+
+redis:
+  endpoint: localhost:6379
+  password: null
+  minIdle: 0
+  maxIdle: 0
+  maxTotal: 1924
+  ssl: false
+  timeout: 2000

@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="css/bootstrap-theme.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="js/underscore-min.js"></script>
+        <script>
+
+            function getUrlVars()
+            {
+                var vars = [], hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for(var i = 0; i < hashes.length; i++)
+                {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                return vars;
+            }
+
+            $(document).ready(function(){
+                var scrip = getUrlVars()['stock'] ? getUrlVars()['stock'] : "heromotoco";
+
+                $('#stockname').html(scrip);
+
+                // monthly prices
+                $.get( "/equity/prices/monthly/" + scrip, function (price_data) {
+                    new Morris.Line({
+                        // ID of the element in which to draw the chart.
+                        element: 'stockpricechart',
+                        // Chart data records -- each entry in this array corresponds to a point on
+                        // the chart.
+                        data:  price_data,
+                        // The name of the data record attribute that contains x-values.
+                        xkey: 'date',
+                        // A list of names of data record attributes that contain y-values.
+                        ykeys: ['close'],
+                        // Labels for the ykeys -- will be displayed when you hover over the
+                        // chart.
+                        labels: ['Closing Price'],
+                        hideHover:'auto'
+                    });
+                });
+
+                $( "#tags" ).autocomplete({
+                    source: function (request, response) {
+                        $.get("/equity/scrips",   function (data) {
+                            var filtered = _.filter( data, function(s){return s.startsWith( request.term);});
+                            response(filtered);
+                        });
+                    },
+                    select: function(e, ui) {
+                        document.location = '?stock=' + ui.item.value;
+                    }
+                });
+            });
+        </script>
+    </head>
+    </body>
+        <div class="container">
+
+            <div class="row" style="margin-top:45px">
+
+                <div class="col-lg-4">
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="ui-widget">
+                        <label for="tags"> </label>
+                        <input id="tags" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4">
+                </div>
+                <div class="col-lg-4">
+                    <h1><div id="stockname" style="font-family:newspaper">
+                        </div>
+                    </h1>
+                </div>
+                <div class="col-lg-4">
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-1">
+                </div>
+
+                <div class="col-lg-10">
+                    <div id="stockpricechart" style="height: 250px;">
+                    </div>
+                </div>
+
+                <div class="col-lg-1">
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-lg-1">
+                </div>
+
+                <div class="col-lg-10">
+                    <div id="yieldbarchart" style="height: 250px;">
+                    </div>
+                </div>
+
+                <div class="col-lg-1">
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

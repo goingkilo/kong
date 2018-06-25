@@ -1,0 +1,14 @@
+
+
+##  May 18 2017 ##
+It's almost a year since I started with this. It's time to revisit stuck-in-a-rut projects and ease them over psychological humps.
+(cheat-nothing eases things over a rut than a workout). I had given up, at last count, on authentication, and had ground everything to a halt.
+ This time, we will revisit stuff ,but one by one, and with single-stretch goals at a time, on each.
+
+## old stuff I will ignore ##
+lists
+crud with json and html
+create screen 
+four lists
+need a servlet filter
+    authentication and users

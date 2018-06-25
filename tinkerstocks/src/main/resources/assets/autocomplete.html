@@ -1,0 +1,41 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="js/underscore-min.js"></script>
+
+        <script>
+
+            $(document).ready(function(){
+
+                $( "#tags" ).autocomplete({
+                    source: function (request, response) {
+                        $.get("../equity/scrips",   function (data) {
+                            var filtered = _.filter( data, function(s){return s.startsWith( request.term);});
+                            response(filtered);
+                        });
+                    },
+                    select: function(e, ui) {
+                        document.location = '/static/chart.html?stock=' + ui.item.value;
+                    }
+                });
+
+
+
+            });
+        </script>
+    </head>
+    </body>
+        <div class="ui-widget">
+            <label for="tags">Tags: </label>
+            <input id="tags">
+        </div>
+
+    </body>
+</html>

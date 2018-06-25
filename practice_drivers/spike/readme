@@ -1,0 +1,3 @@
+run 'source venv/bin/activate' to activate virtual environment
+run 'pip install -r requirements.txt ' to install dependencies
+run 'python app.py' to start the app

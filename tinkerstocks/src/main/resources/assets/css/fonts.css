@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'newspaper';
+    src: url('../font/OldNewspaperTypes.ttf') format('truetype');;
+}
+@font-face {
+    font-family: 'typewriter';
+    src: url('../font/Essays1743.ttf') format('truetype');
+}
+

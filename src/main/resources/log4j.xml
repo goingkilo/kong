@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration packages="de.groupon.api.util">
+    <Appenders>
+        <RollingRandomAccessFile name="fileAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/api.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/api.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] [%p] %l - %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="smartdealsFileAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/smartdeals.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/smartdeals.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] [%p] %l - %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="smartdealsImpressionFileAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/smrt-impression.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/smrt-impression.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] [%p] %l - %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="smartdealsPerfCounterAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/smrt-perfCounter.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/smrt-perfCounter.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] [%p] %l - %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="fileAppenderSQL" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/sql.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/sql.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] [%p] %l - %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="AccessLogAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/access.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/access.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] %-5p -%c{1} - %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="MaintenanceOperationsAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/api-maintenance.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/api-maintenance.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] %-5p %c{1} - %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="WriteLogAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/write.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/write.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] %-5p -%c{1} - %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="MobileEventsAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/mobile-events.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/mobile-events.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d [%t] %-5p %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="CidLoggerAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/cid_tracking.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/cid_tracking.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss.SSS000}|%m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="CidErrorLoggerAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/cid_tracking_regex_failed.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/cid_tracking_regex_failed.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss.SSS000}|%m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="startTimeLoggerAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/smrt-startTimeLgger.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/smrt-startTimeLgger.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] [%p] %l - %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <!-- JMS MESSAGING -->
+        <RollingRandomAccessFile name="fileAppenderJMS" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/api-jms-messages.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/api-jms-messages.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] %-5p %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="dealMatchingServiceFileAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/deal-matching-service.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/deal-matching-service.log.%d{yyyy-MM-dd}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] [%p] %l - %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <!-- HYSTRIX -->
+        <RollingRandomAccessFile name="hystrixFileAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/hystrix.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/hystrix.log.%d{yyyy-MM-dd-HH}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] [%p] - %m%n" />
+            <TimeBasedTriggeringPolicy />
+            <TimeBasedRolloverStrategy backupCount="2"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="translationFileAppender" append="true" fileName="/data/stardeals/logs/${sys:jvm.process.name}/translation.log" filePattern="/data/stardeals/logs/${sys:jvm.process.name}/translation.log.%d{yyyy-MM-dd-HH}">
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS z} [%t] [%X{requestId}] [%p] %l - %m%n" />
+            <TimeBasedTriggeringPolicy />
+            <TimeBasedRolloverStrategy backupCount="2"/>
+        </RollingRandomAccessFile>
+
+    </Appenders>
+    <Loggers>
+        <Logger name="accessLog" level="all" additivity="false">
+            <AppenderRef ref="AccessLogAppender"/>
+        </Logger>
+        <Logger name="maintenancePayload" level="info" additivity="false">
+            <AppenderRef ref="MaintenanceOperationsAppender"/>
+        </Logger>
+        <Logger name="payloadLog" level="all" additivity="false">
+            <AppenderRef ref="WriteLogAppender"/>
+        </Logger>
+        <Logger name="eventLog" level="all" additivity="false">
+            <AppenderRef ref="MobileEventsAppender"/>
+        </Logger>
+        <Logger name="cidLog" level="info" additivity="false">
+            <AppenderRef ref="CidLoggerAppender"/>
+        </Logger>
+        <Logger name="cidErrorLogger" level="info" additivity="false">
+            <AppenderRef ref="CidErrorLoggerAppender"/>
+        </Logger>
+        <Logger name="de.groupon.jms" level="info" additivity="false">
+            <AppenderRef ref="fileAppenderJMS"/>
+        </Logger>
+        <Logger name="de.groupon.api.cdis.jms" level="info" additivity="false">
+            <AppenderRef ref="fileAppenderJMS"/>
+        </Logger>
+        <Logger name="de.stardeals.backend.service.impl.MessageDispatcherServiceImpl" level="info" additivity="false">
+            <AppenderRef ref="fileAppenderJMS"/>
+        </Logger>
+        <Logger name="de.groupon.api.mobile.jms" level="info" additivity="false">
+            <AppenderRef ref="fileAppenderJMS"/>
+        </Logger>
+        <Logger name="org.hibernate.SQL" level="off" additivity="false" includeLocation="true">
+            <AppenderRef ref="fileAppenderSQL"/>
+        </Logger>
+        <Logger name="org.hibernate" level="error" includeLocation="true" />
+        <Logger name="de.groupon.api" level="info" includeLocation="true" />
+        <Logger name="com.groupon" level="info" additivity="false" includeLocation="true">
+            <AppenderRef ref="smartdealsFileAppender"/>
+        </Logger>
+        <Logger name="com.groupon.smartdeals.perf.PerfCounterLogger" level="info" additivity="false" includeLocation="true">
+            <AppenderRef ref="smartdealsPerfCounterAppender"/>
+        </Logger>
+        <Logger name="smartdealsImpressionLog" level="info" additivity="false" includeLocation="true">
+            <AppenderRef ref="smartdealsImpressionFileAppender"/>
+        </Logger>
+        <Logger name="startTimeLogger" level="off" additivity="false" includeLocation="true">
+            <AppenderRef ref="startTimeLoggerAppender"/>
+        </Logger>
+        <Logger name="de.citydeal.backend.citydeal" level="error" includeLocation="true" />
+        <Logger name="de.citydeal.backend.caching" level="warn" includeLocation="true" />
+        <Logger name="de.groupon.api.shared.interceptor.LoggingInterceptor" level="info" includeLocation="true" />
+        <Logger name="org.springframework.web.client.RestTemplate" level="error" includeLocation="true" />
+        <Logger name="de.groupon.api.payment.signature.SignatureUtil" level="off" includeLocation="true" />
+        <Logger name="de.groupon.api.shared.aspect.CacheableMethodsWatcher" level="off" includeLocation="true" />
+        <Logger name="org.springframework" level="info" includeLocation="true" />
+        <Logger name="com.restfb" level="warn" includeLocation="true" />
+        <Logger name="failed-auth-logger" level="off" includeLocation="true" />
+        <Logger name="DealMatchingService" level="info" additivity="false" includeLocation="true">
+            <AppenderRef ref="dealMatchingServiceFileAppender"/>
+        </Logger>
+        <Logger name="de.citydeal.backend.stats" level="off" includeLocation="true" />
+        <Logger name="ServiceStatisticsLogger" level="off" includeLocation="true" />
+        <Logger name="com.netflix.hystrix.contrib.metrics.eventstream" level="off" includeLocation="true"/>
+        <Logger name="hystrixLogger" level="info" additivity="false">
+            <AppenderRef ref="hystrixFileAppender"/>
+        </Logger>
+        <Logger name="org.springframework.web.servlet.PageNotFound" level="off" includeLocation="true" />
+        <Logger name="com.sun.jersey.api.client.ClientResponse" level="off" includeLocation="true" />
+        <Logger name="com.sun.jersey.api.client.filter.LoggingFilter" level="warn" includeLocation="true" />
+        <Logger name="de.groupon.config.web.converter.BaseHttpMessageConverter" level="warn" includeLocation="true" />
+        <Logger name="translationLogger" level="info" additivity="false" includeLocation="true">
+            <AppenderRef ref="translationFileAppender"/>
+        </Logger>
+        <Logger name="de.groupon.api.cdis.service.impl.VoucherInventoryServiceImpl" level="debug" additivity="false" includeLocation="true">
+            <AppenderRef ref="fileAppender"/>
+        </Logger>
+        <Root level="info" includeLocation="true">
+            <AppenderRef ref="fileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

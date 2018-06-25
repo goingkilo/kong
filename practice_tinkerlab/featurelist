@@ -1,0 +1,48 @@
+
+GTD
+====
+lists ,projects, crud
+
+Misc
+====
+dropwizard core assets
+
+health checks
+    db health check *
+    n/w health check *
+    threads *
+    deadlocks *
+    basic
+
+assets (static)
+    fonts
+    html
+    images
+    css
+        bootstrap
+    js
+        jquery
+        leaflet *
+    
+Jersey resources
+    json
+    html
+    combined *
+
+view
+    freemarker templates
+
+logging *
+
+run on 0.0.0.0 *
+backup data *
+    shutdown & startup hook *
+authentication
+    oauth *
+    openid *
+    id /password ?
+    sso ?
+provide file downloads *
+provide file uploads *
+upload photo from mobile *
+upload clip from mobile *
